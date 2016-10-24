@@ -1,0 +1,10 @@
+#arcache-options-form #spinner {width:32px;height:32px;background: url(../lib/spinner.gif) no-repeat;margin: 0 auto;display:none;}
+#arcache-options-form .arcache-table td {padding: 6px;}
+#arcache-options-form .arcache-table th {width: 200px;text-align:left;}
+#arcache-options-form .arcache-table th label:after {content: " :";}
+#arcache-options-form .arcache-table .col1 {width: 20px;}
+#arcache-options-form .arcache-table .col2 {width: 400px;}
+#arcache-options-form a.tooltip {width:16px;height:16px;display:block;background: url(../lib/tooltip.png) no-repeat;}
+#arcache-options-form a:hover {background:#ffffff; text-decoration:none;} 
+#arcache-options-form a.tooltip span {display:none; padding:2px 3px; margin-left:24px;}
+#arcache-options-form a.tooltip:hover span{display:inline; position:absolute; background:#ffffff; border:1px solid #cccccc; color:#669933; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);}
