@@ -7,4 +7,4 @@ WordPress Plugin that clean cache on every update and new posts.
 
 
 # Installation
-Refer to the [wiki](https://github.com/MasoudNikoomanesh/arvancloud-cache-cleaner/wiki) for screenshots, information on how to install, confing and more.
+Refer to the [wiki](https://github.com/MasoudNikoomanesh/arvancloud-cache-cleaner/wiki) for screenshots, information on how to install, config and more.
