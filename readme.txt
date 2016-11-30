@@ -2,7 +2,7 @@
 Contributors: Masoud Nikoomanesh
 Tags: ابر آروان , arvancloud , cache cleaner , purge , آروان کلود
 Requires at least: 3.0.1
-Tested up to: 4.4.2
+Tested up to: 4.6
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://arvancloud.com/register
@@ -19,7 +19,7 @@ License URI: https://arvancloud.com/register
 1. Upload arvancloud-cache-cleaner folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Create a ArvanCloud account at https://www.arvancloud.com/register
-1. Enter your ArvanCloud email address & API token & API Domain & Domain on the plugin settings page
+1. Enter your ArvanCloud Account & API token & API Domain & Domain on the plugin settings page
 
 == Frequently Asked Questions ==
 
@@ -48,4 +48,14 @@ License URI: https://arvancloud.com/register
 
 * Retry for Connectiong to Servers
 * Improvement Performance
+
+= 0.9 =
+
+* Improvement Performance
+* Add Field to Clean Specific URLs in Editor Page
+
+= 1.0 =
+
+* Improvement Performance
+* Bug fix
 
