@@ -4,14 +4,14 @@
 
 Plugin Name:  ArvanCloud Cache Cleaner
 Description:  افزونه اختصاصی ابر آروان ( نسخه آزمایشی ) در این نسخه امکان حذف کش ها به صورت اتوماتیک وجود دارد
-Version:      1.0
+Version:      1.1
 Author:       ArvanCloud
 Author URI:   https://arvancloud.com
 Contributors: arvancloud
 
 */
 
-define('ar_cache_VERSION', '1.0');
+define('ar_cache_VERSION', '1.1');
 
 define('ar_cache_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('ar_cache_PLUGIN_PATH', plugin_dir_path(__FILE__));
@@ -35,8 +35,7 @@ add_filter('show_admin_bar', 'ar_function_admin_bar');
 
 class ar_cache_API
 {
-
-    var $ar_cache_endpoint = "https://www.arvancloud.com/api/v1/domains/purge-cache";
+    var $ar_cache_endpoint = "https://api.arvancloud.com/cdn/1.0/domains/domain_slug/caching/purge";
     var $ar_cache_methods = array();
     var $ar_cache_options = array();
     var $ar_cache_url = '';
@@ -57,24 +56,12 @@ class ar_cache_API
 
     function build_api_calls()
     {
-        $token = isset($this->ar_cache_options['token']) ? $this->ar_cache_options['token'] : null;
-        $email = isset($this->ar_cache_options['email']) ? $this->ar_cache_options['email'] : null;
-        $site = isset($this->ar_cache_options['site']) ? $this->ar_cache_options['site'] : null;
-        $domain_key = isset($this->ar_cache_options['account']) ? $this->ar_cache_options['account'] : null;
         $this->api_methods = array(
             "purge_all" => array(
-                'cmd' => 'purge-all',
-                'key' => $token,
-                'user' => $email,
-                'domain' => $domain_key,
-                'site' => $site
+                'purge' => 'all',
             ),
             "ar_purge_url" => array(
-                'cmd' => 'purge-files',
-                'key' => $token,
-                'user' => $email,
-                'domain' => $domain_key,
-                'site' => $site
+                'purge' => 'individual',
             )
         );
     }
@@ -91,7 +78,17 @@ class ar_cache_API
 
     function ar_make_api_request($api_method, $extra_post_variables = null)
     {
-        $headers = '';
+        $token = isset($this->ar_cache_options['token']) ? $this->ar_cache_options['token'] : null;
+        $email = isset($this->ar_cache_options['email']) ? $this->ar_cache_options['email'] : null;
+        $site = isset($this->ar_cache_options['site']) ? $this->ar_cache_options['site'] : null;
+        $domain_key = isset($this->ar_cache_options['account']) ? $this->ar_cache_options['account'] : null;
+        $headers = array(
+            'X-AUTH-KEY' => $token,
+            'X-AUTH-EMAIL' => $email,
+            'X-AUTH-SERVICE-KEY' => $domain_key,
+        );
+        $this->ar_cache_endpoint = str_replace('domain_slug', $site, $this->ar_cache_endpoint);
+
         if (is_array($extra_post_variables)) {
             $post_variables = array_merge($this->api_methods[$api_method], $extra_post_variables);
         } else {
@@ -114,11 +111,12 @@ class ar_cache_API
     function ar_purge_url($url)
     {
         $this->ar_purge_url_after_post_save($url, true);
+
     }
 
     function ar_purge_url_after_post_save($url, $ajax = false)
     {
-        $results = $this->ar_make_api_request('ar_purge_url', array('url' => $url));
+        $results = $this->ar_make_api_request('ar_purge_url', array('purge_urls' => $url));
         if ($ajax) {
             $auto = "Manual";
         } else {
