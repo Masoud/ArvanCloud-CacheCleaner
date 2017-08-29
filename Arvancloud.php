@@ -4,14 +4,14 @@
 
 Plugin Name:  ArvanCloud Cache Cleaner
 Description:  افزونه اختصاصی ابر آروان ( نسخه آزمایشی ) در این نسخه امکان حذف کش ها به صورت اتوماتیک وجود دارد
-Version:      1.1
+Version:      1.2
 Author:       ArvanCloud
 Author URI:   https://arvancloud.com
 Contributors: arvancloud
 
 */
 
-define('ar_cache_VERSION', '1.1');
+define('ar_cache_VERSION', '1.2');
 
 define('ar_cache_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('ar_cache_PLUGIN_PATH', plugin_dir_path(__FILE__));
@@ -25,7 +25,7 @@ function ar_function_admin_bar()
     if ($options['turn_off_menubar'] == true) {
         return false;
     } else {
-        return ture;
+        return true;
     }
 }
 
