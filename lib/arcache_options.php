@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <script src="https://lib.arvancloud.com/ar/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://lib.arvancloud.com/ar/jquery/3.3.1/jquery.min.js"></script>
     <style>
         .tabs-menu {
             height: 30px;
