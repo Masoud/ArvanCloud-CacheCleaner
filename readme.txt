@@ -2,7 +2,7 @@
 Contributors: Masoud Nikoomanesh
 Tags: ابر آروان , arvancloud , cache cleaner , purge , آروان کلود
 Requires at least: 3.0.1
-Tested up to: 4.8.1
+Tested up to: 4.9.8
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://arvancloud.com/register
@@ -66,3 +66,7 @@ License URI: https://arvancloud.com/register
 = 1.2 =
 
 * Bug fixes and stability improvements
+
+= 1.2.1 =
+
+* Compatible with Wordpress 4.9.8
