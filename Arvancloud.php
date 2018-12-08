@@ -11,7 +11,7 @@ Contributors: arvancloud
 
 */
 
-define('ar_cache_VERSION', '1.2');
+define('ar_cache_VERSION', '1.2.1');
 
 define('ar_cache_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('ar_cache_PLUGIN_PATH', plugin_dir_path(__FILE__));
